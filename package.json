@@ -1,0 +1,33 @@
+{
+  "name": "elysia-backend-template",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts",
+    "studio": "drizzle-kit studio",
+    "build": "bun build ./src/index.ts --outdir ./dist",
+    "migrate": "drizzle-kit generate:mysql --schema=./src/models/user.ts",
+    "migrate:run": "bun run src/config/runMigrations.ts",
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check --apply ."
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "^3.645.0",
+    "@aws-sdk/client-s3": "^3.645.0",
+    "@elysiajs/swagger": "^1.1.1",
+    "drizzle-orm": "^0.33.0",
+    "elysia": "^1.1.12",
+    "mysql2": "^3.11.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "bun-types": "^1.1.27",
+    "drizzle-kit": "^0.24.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
