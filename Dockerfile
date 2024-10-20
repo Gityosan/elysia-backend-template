@@ -5,12 +5,12 @@ WORKDIR /app
 COPY package.json .
 COPY bun.lockb .
 
-RUN bun install --production
+RUN bun install
 
 COPY src src
 COPY tsconfig.json .
+COPY drizzle.config.ts .
 
-ENV NODE_ENV production
 CMD ["bun", "start"]
 
-EXPOSE 3000
+EXPOSE 3010
